@@ -28,6 +28,6 @@ export interface start {
   id: string;
 }
 
-export interface state {
+export interface State {
   movieList?: movie[];
 }
