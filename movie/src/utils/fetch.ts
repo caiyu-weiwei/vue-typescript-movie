@@ -4,7 +4,8 @@ import { Toast } from 'vant';
 
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
 
-const baseURL = 'https://api.douban.com/v2/movie/';
+// const baseURL = 'https://api.douban.com/v2/';  原来配错的地方
+const baseURL = '/api';
 
 const fetch = axios.create({
   baseURL,

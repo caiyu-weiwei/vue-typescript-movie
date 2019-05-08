@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import home from '@/store/home';
+import home from './home/index';
+
+Vue.use(Vuex);
 
 
 export default new Vuex.Store({

@@ -8,22 +8,23 @@ const state: State = {
   movieList: [],
 };
 
-const getters =  {
+const getters: any =  {
   movieList: (state: State) => state.movieList,
 };
 
-const mutations = {
+const mutations: any = {
 };
 
-const actions = {
+const actions: any = {
   async movieList(context: {commit: Commit}, category: string) {
-    await getMovieList(category)
+    return await getMovieList(category)
       .then((res: any) => res)
-      .catch((error: any) => Toast({type: 'fail', message: error}));
+      .catch((error: any) => error);
   },
 };
 
 export default{
+  namespaced: true,
   state,
   getters,
   mutations,
