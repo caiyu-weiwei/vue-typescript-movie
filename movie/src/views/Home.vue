@@ -19,9 +19,6 @@
           </div>
         </van-list>
         
-        <!-- <div v-else class="spinner" ref="spinner0">
-          <van-loading type="spinner" />
-        </div> -->
         
       </van-tab>
       <van-tab title="即将上映">
@@ -36,9 +33,6 @@
             <MovieItem v-for="(subject, index) in movieListData" :key="index" :movie="subject"></MovieItem>
           </div>
         </van-list>
-        <!-- <div v-else class="spinner" ref="spinner1">
-          <van-loading type="spinner" />
-        </div> -->
       </van-tab>
       <van-tab title="Top250">
         <van-list
@@ -52,9 +46,6 @@
             <MovieItem v-for="(subject, index) in movieListData" :key="index" :movie="subject"></MovieItem>
           </div>
         </van-list>
-        <!-- <div v-else class="spinner" ref="spinner2">
-          <van-loading type="spinner" />
-        </div> -->
       </van-tab>
     </van-tabs>
   </div>

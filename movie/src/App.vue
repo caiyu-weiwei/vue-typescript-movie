@@ -1,20 +1,21 @@
 <template>
   <div id="app">
-    <Header></Header>
+    <Header :title="title"></Header>
     <router-view/>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-// import { NavBar } from 'vant';
 import Header from '@/components/Header.vue';
 @Component({
   components: {
     Header,
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  private title: string = '首页'
+}
 </script>
 
 <style scoped>
@@ -24,7 +25,5 @@ export default class App extends Vue {}
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 }
-.flex{
-  display: flex;
-}
+
 </style>

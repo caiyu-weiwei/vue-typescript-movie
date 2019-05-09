@@ -1,7 +1,9 @@
 <template>
   <div class="header">
     <van-nav-bar
-      title="首页"
+      
+      z-index = 99
+      :title = "title"
     />
   </div>
 </template>
@@ -15,11 +17,15 @@ import { NavBar } from 'vant';
   },
 })
 export default class Header extends Vue {
-  // private title: string = '';
+  private fixed: boolean = true
+  @Prop()
+  private title: string
 }
 </script>
 
 <style lang="sass" scoped>
+.header
+ height: 46px
 .van-nav-bar
   color: #fff
   background-color: #EE4000
