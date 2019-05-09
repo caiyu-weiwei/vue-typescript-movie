@@ -1,9 +1,10 @@
 <template>
   <div class="header">
     <van-nav-bar
-      
-      z-index = 99
+      :fixed="fixed"
       :title = "title"
+      :left-arrow="leftArrow"
+      z-index = 99
     />
   </div>
 </template>
@@ -20,6 +21,8 @@ export default class Header extends Vue {
   private fixed: boolean = true
   @Prop()
   private title: string
+  @Prop()
+  private leftArrow: boolean
 }
 </script>
 
@@ -30,5 +33,8 @@ export default class Header extends Vue {
   color: #fff
   background-color: #EE4000
   .van-nav-bar__title
+    color: #fff
+  .van-nav-bar__left
+  .van-icon
     color: #fff
 </style>

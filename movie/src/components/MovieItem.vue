@@ -1,5 +1,5 @@
 <template>
-  <div class="movieItemContainer">
+  <div class="movieItemContainer" @click="enterMovieDetail">
     <div class="movieImg">
       <img :src="movie.images.small">
     </div>
@@ -28,10 +28,13 @@ export default class MovieItem extends Vue{
   @Prop()
   private movie: any
 
-  notFind() {
-    this.img = event.srcElement;
-    this.img.src = this.errorSrc;
-    this.img.onerror = null; 
+  private enterMovieDetail() {
+    this.$router.push({
+      name: 'movieDetail',
+      query: {
+        id: this.movie.id
+      }
+    })
   }
 }
   
