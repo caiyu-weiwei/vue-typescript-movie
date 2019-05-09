@@ -19,6 +19,10 @@ export default class Header extends Vue {
 }
 </script>
 
-<style scoped>
-
+<style lang="sass" scoped>
+.van-nav-bar
+  color: #fff
+  background-color: #EE4000
+  .van-nav-bar__title
+    color: #fff
 </style>

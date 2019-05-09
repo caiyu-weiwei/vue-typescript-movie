@@ -1,16 +1,16 @@
 <template>
   <div class="movieItemContainer">
     <div class="movieImg">
-      <img src="" alt="">
+      <img :src="movie.images.small">
     </div>
     <div class="movieContent">
-      <div class="movieName"></div>
-      <div class="movieCategory">类别：["剧情", "动作", "犯罪"]</div>
-      <div class="movieActor">主演：</div>
-      <div class="movieDirector">导演：</div>
+      <div class="movieName">{{movie.title}}</div>
+      <div class="movieCategory">类别：[{{movie.genres.toString()}}]</div>
+      <div class="movieActor">主演：{{movie.casts[0].name}}</div>
+      <div class="movieDirector">导演：{{movie.directors[0].name}}</div>
     </div>
     <div class="movieMark">
-      
+      {{movie.rating.average}}
       <span>分</span>
     </div>
   </div>
@@ -18,10 +18,21 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-@Component
+@Component({
+  components: {}
+})
 export default class MovieItem extends Vue{
+
+  private img: any = null
+  private errorSrc: string = '/movie/public/img/no_picture.png'
   @Prop()
   private movie: any
+
+  notFind() {
+    this.img = event.srcElement;
+    this.img.src = this.errorSrc;
+    this.img.onerror = null; 
+  }
 }
   
 </script>
@@ -33,12 +44,16 @@ export default class MovieItem extends Vue{
   display: flex
   flex-direction: row
   flex-wrap: nowrap
-  flex: 1
+  div
+    padding: 0 5px
   .movieImg
     width: 88px
     height: 110px
+    img
+      width: 100%
+      height: 100%
   .movieContent
-    
+    flex: 1
     // padding: 0 5px
     div
       padding: 5px 0
@@ -54,10 +69,12 @@ export default class MovieItem extends Vue{
       font-size: 14px
       color: #999
   .movieMark
+    flex: .5
     font-size: 20px
     font-weight: bold
     font-family: "Microsoft New Tai Lue"
     color: #FFB400
+    text-align: center
     span
       font-size: 14px
 </style>
